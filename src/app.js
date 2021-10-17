@@ -17,10 +17,15 @@ app.use(cors());//para que pueda integrarse con las apps
 app.use(morgan("dev")); // para ver peticiones por consola
 app.use(express.json());
 
-app.set("port", 3320);
+//app.set("port", 3320);
+// Settings
+app.set("port", process.env.PORT || 3320);
+
 app.use(tasksRoutes);
 app.use(blogsRoutes);
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
+
+
 /*
 app.use(express.urlencoded({ extended: false }));
 app.use(userRoutes);
