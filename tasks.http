@@ -1,0 +1,33 @@
+@localhost = http://localhost:3320
+
+Get {{localhost}}/tasks
+
+###
+Get {{localhost}}/tasks/2
+
+###
+GET {{localhost}}/tasks/count
+
+###
+POST {{localhost}}/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"ki tarea",
+    "description":"ceradfg descrip"
+}
+
+###
+Delete {{localhost}}/tasks/9
+
+###
+PUT {{localhost}}/tasks/9 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"updated title",
+    "description":"udated 2dfg descrip"
+}
+
+###
+Get {{localhost}}/blogs
