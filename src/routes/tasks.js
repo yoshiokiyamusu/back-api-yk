@@ -3,6 +3,7 @@ import {
     getTasks, getTask, getTasksCount, saveTask, deleteTask, updatetask
 } from "../controllers/tasks";
 
+
 const router = Router();
 
 /**
@@ -26,6 +27,7 @@ const router = Router();
  *    tags: [Tasks]
  */
 router.get('/tasks',getTasks);
+
 /**
  * @swagger
  * /tasks/count:

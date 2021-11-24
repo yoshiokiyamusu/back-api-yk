@@ -31,3 +31,6 @@ Content-Type: application/json
 
 ###
 Get {{localhost}}/blogs
+
+###
+Get {{localhost}}/blogs/5

@@ -5,6 +5,7 @@ export const getTasks = async (req,res)=>{
     const connection = await connect();
     const [rows] = await connection.query("SELECT * from tasks");
     //console.log(rows);
+    
     res.json(rows);
     //res.send('Hello Yoshio');
 };
