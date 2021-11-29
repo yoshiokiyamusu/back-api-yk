@@ -34,3 +34,13 @@ Get {{localhost}}/blogs
 
 ###
 Get {{localhost}}/blogs/5
+
+###
+POST {{localhost}}/blogs HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"Ejemplo blog",
+    "body":"lorem gfdj dfgkdf",
+    "author":"chanchis"
+}
