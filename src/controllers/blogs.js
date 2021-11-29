@@ -36,3 +36,13 @@ export const createBlog = async (req, res) => {
     console.error(error);
   }
 };
+
+export const deleteBlog = async (req, res) => {
+  const connection = await connect();
+  const [results] = await connection.query("DELETE FROM blogs WHERE id = ?", [
+    req.params.id,
+  ]);
+  console.log(results);
+
+  res.sendStatus(204);
+};
