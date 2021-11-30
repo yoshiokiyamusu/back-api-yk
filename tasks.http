@@ -44,3 +44,6 @@ Content-Type: application/json
     "body":"lorem gfdj dfgkdf",
     "author":"chanchis"
 }
+
+###
+Delete {{localhost}}/blogs/9

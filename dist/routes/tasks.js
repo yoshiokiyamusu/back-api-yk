@@ -32,7 +32,7 @@ var router = (0, _express.Router)();
  *    tags: [Tasks]
  */
 
-router.get('/tasksi', _tasks.getTasks);
+router.get('/tasks', _tasks.getTasks);
 /**
  * @swagger
  * /tasks/count:

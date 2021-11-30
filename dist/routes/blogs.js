@@ -11,5 +11,8 @@ var _blogs = require("../controllers/blogs");
 
 var router = (0, _express.Router)();
 router.get('/blogs', _blogs.getBlogs);
+router.get('/blogs/:id', _blogs.getBlog);
+router.post('/blogs', _blogs.createBlog);
+router["delete"]('/blogs/:id', _blogs.deleteBlog);
 var _default = router;
 exports["default"] = _default;
