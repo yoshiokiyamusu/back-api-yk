@@ -46,4 +46,4 @@ Content-Type: application/json
 }
 
 ###
-Delete {{localhost}}/blogs/9
+Delete {{localhost}}/blogs/2

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index paypal</title>
+</head>
+<body>
+    <button id="checkout">Checkout!</button>
+
+    <script>
+      const checkout = document.getElementById("checkout");
+      checkout.addEventListener("click", async () => {
+        
+        const response = await fetch("/create-order", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({valor: 0.11, producto: 'Item ABC'})
+        });
+        
+        const data = await response.json();
+        //console.log(data);
+        window.location.href = data.links[1].href
+      });
+    </script>
+</body>
+</html>

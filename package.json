@@ -1,5 +1,5 @@
 {
-  "name": "react_native_mysql_node",
+  "name": "paypal_api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,9 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.15.4",
+    "axios": "^0.24.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
     "swagger-jsdoc": "^6.1.0",

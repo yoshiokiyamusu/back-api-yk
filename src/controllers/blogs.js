@@ -1,6 +1,7 @@
 import {connect} from '../database.js'
 
 export const getBlogs = async (req,res)=>{
+    console.log('holi yoski');
     const connection = await connect();
     const [rows] = await connection.query("SELECT * from blogs");
     //console.log(rows);

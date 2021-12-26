@@ -11,17 +11,23 @@ var _express = _interopRequireDefault(require("express"));
 
 var _cors = _interopRequireDefault(require("cors"));
 
+var _path = _interopRequireDefault(require("path"));
+
 var _morgan = _interopRequireDefault(require("morgan"));
 
 var _tasks = _interopRequireDefault(require("./routes/tasks.js"));
 
 var _blogs = _interopRequireDefault(require("./routes/blogs.js"));
 
+var _paymentRoutes = _interopRequireDefault(require("./routes/payment.routes.js"));
+
 var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 
 var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 
 var _swaggerOptions = require("./swaggerOptions");
+
+var bodyParser = require("body-parser");
 
 var specs = (0, _swaggerJsdoc["default"])(_swaggerOptions.options);
 /*
@@ -33,12 +39,16 @@ app.use((0, _cors["default"])()); //para que pueda integrarse con las apps
 
 app.use((0, _morgan["default"])("dev")); // para ver peticiones por consola
 
-app.use(_express["default"].json()); //app.set("port", 3320);
+app.use(_express["default"].json());
+app.use(bodyParser.json()); //application/json
+//app.set("port", 3320);
 // Settings
 
 app.set("port", process.env.PORT || 3320);
 app.use(_tasks["default"]);
 app.use(_blogs["default"]);
+app.use(_paymentRoutes["default"]);
+app.use(_express["default"]["static"](_path["default"].join(__dirname, "public")));
 app.use("/docs", _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(specs));
 /*
 app.use(express.urlencoded({ extended: false }));

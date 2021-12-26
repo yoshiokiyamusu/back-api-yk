@@ -29,15 +29,16 @@ var getBlogs = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            console.log('holi yoski');
+            _context.next = 3;
             return (0, _database.connect)();
 
-          case 2:
+          case 3:
             connection = _context.sent;
-            _context.next = 5;
+            _context.next = 6;
             return connection.query("SELECT * from blogs");
 
-          case 5:
+          case 6:
             _yield$connection$que = _context.sent;
             _yield$connection$que2 = (0, _slicedToArray2["default"])(_yield$connection$que, 1);
             rows = _yield$connection$que2[0];
@@ -45,7 +46,7 @@ var getBlogs = /*#__PURE__*/function () {
             res.json(rows); //res.json(rows);
             //res.send('Hello Yoshio');
 
-          case 9:
+          case 10:
           case "end":
             return _context.stop();
         }
