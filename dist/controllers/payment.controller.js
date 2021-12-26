@@ -49,7 +49,7 @@ var createOrder = /*#__PURE__*/function () {
             params.append("grant_type", "client_credentials"); //2. const token
 
             _context.next = 7;
-            return _axios["default"].post("https://api-m.sandbox.paypal.com/v1/oauth2/token", params, {
+            return _axios["default"].post("https://api-m.paypal.com/v1/oauth2/token", params, {
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
               },

@@ -25,7 +25,7 @@ const config_free_jaws = {
 };*/
 
 var config_free_jaws = {
-  host: process.env.host,
+  host: process.env.host_db,
   user: process.env.user,
   password: process.env.password,
   database: process.env.database
