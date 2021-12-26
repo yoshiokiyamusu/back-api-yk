@@ -10,6 +10,7 @@ import {
 
 export const createOrder = async (req, res) => {
   const cart_value = req.body.valor;
+  const cart_descrip = req.body.cart_descrip;
   try{
     const order = {
       "intent": "CAPTURE",
@@ -19,7 +20,7 @@ export const createOrder = async (req, res) => {
             "currency_code": "USD",
             "value": cart_value
           },
-          description: "Item A",
+          description: cart_descrip,
         }
       ],
       application_context: {
