@@ -42,8 +42,8 @@ var writeDateTemp = /*#__PURE__*/function () {
             }).then(function (rows) {
               return rows.json();
             }).then(function (data) {
-              //console.log(data);
-              //console.log(data.list.length);
+              console.log(data.list);
+              console.log(data.list.length);
               var n = 0;
 
               for (n = 0; n < data.list.length; n++) {
