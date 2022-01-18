@@ -21,11 +21,15 @@ var _blogs = _interopRequireDefault(require("./routes/blogs.js"));
 
 var _paymentRoutes = _interopRequireDefault(require("./routes/payment.routes.js"));
 
+var _weather = _interopRequireDefault(require("./routes/weather.js"));
+
 var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 
 var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 
 var _swaggerOptions = require("./swaggerOptions");
+
+var authRoutes = require("./routes/auth");
 
 var bodyParser = require("body-parser");
 
@@ -48,6 +52,9 @@ app.set("port", process.env.PORT || 3320);
 app.use(_tasks["default"]);
 app.use(_blogs["default"]);
 app.use(_paymentRoutes["default"]);
+app.use("/weather", _weather["default"]); //Authorization token
+
+app.use("/auth", authRoutes);
 app.use(_express["default"]["static"](_path["default"].join(__dirname, "public")));
 app.use("/docs", _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(specs));
 /*

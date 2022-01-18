@@ -18,14 +18,15 @@ var _config = require("../config");
 //const { check, validationResult } = require("express-validator/check");
 var createOrder = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
-    var cart_value, order, params, _yield$axios$post, data, response;
+    var cart_value, cart_descrip, order, params, _yield$axios$post, data, response;
 
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             cart_value = req.body.valor;
-            _context.prev = 1;
+            cart_descrip = req.body.cart_descrip;
+            _context.prev = 2;
             order = {
               "intent": "CAPTURE",
               "purchase_units": [{
@@ -33,7 +34,7 @@ var createOrder = /*#__PURE__*/function () {
                   "currency_code": "USD",
                   "value": cart_value
                 },
-                description: "Item A"
+                description: cart_descrip
               }],
               application_context: {
                 brand_name: "Cocotfyma",
@@ -48,8 +49,8 @@ var createOrder = /*#__PURE__*/function () {
             params = new URLSearchParams();
             params.append("grant_type", "client_credentials"); //2. const token
 
-            _context.next = 7;
-            return _axios["default"].post("https://api-m.paypal.com/v1/oauth2/token", params, {
+            _context.next = 8;
+            return _axios["default"].post("https://api-m.sandbox.paypal.com/v1/oauth2/token", params, {
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
               },
@@ -59,35 +60,35 @@ var createOrder = /*#__PURE__*/function () {
               }
             });
 
-          case 7:
+          case 8:
             _yield$axios$post = _context.sent;
             data = _yield$axios$post.data;
-            _context.next = 11;
+            _context.next = 12;
             return _axios["default"].post("".concat(_config.PAYPAL_API, "/v2/checkout/orders"), order, {
               headers: {
                 "Authorization": "Bearer ".concat(data.access_token)
               }
             });
 
-          case 11:
+          case 12:
             response = _context.sent;
             //console.log(response.data.links[1].href);
             res.send(response.data); //res.json(response.data);   
 
-            _context.next = 18;
+            _context.next = 19;
             break;
 
-          case 15:
-            _context.prev = 15;
-            _context.t0 = _context["catch"](1);
+          case 16:
+            _context.prev = 16;
+            _context.t0 = _context["catch"](2);
             return _context.abrupt("return", res.status(500).send("something went wrong"));
 
-          case 18:
+          case 19:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 15]]);
+    }, _callee, null, [[2, 16]]);
   }));
 
   return function createOrder(_x, _x2) {

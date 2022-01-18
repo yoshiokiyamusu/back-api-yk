@@ -37,7 +37,7 @@ export const createOrder = async (req, res) => {
     const params = new URLSearchParams();
     params.append("grant_type", "client_credentials");
     //2. const token
-    const {data} = await axios.post("https://api-m.paypal.com/v1/oauth2/token", params,
+    const {data} = await axios.post("https://api-m.sandbox.paypal.com/v1/oauth2/token", params,
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

@@ -5,7 +5,11 @@ import morgan from "morgan";
 import tasksRoutes from "./routes/tasks.js";
 import blogsRoutes from "./routes/blogs.js";
 import payment from "./routes/payment.routes.js";
+const authRoutes = require("./routes/auth");
+import weatherRoutes from "./routes/weather.js";
 const bodyParser = require("body-parser");
+
+
 
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
@@ -21,6 +25,7 @@ app.use(morgan("dev")); // para ver peticiones por consola
 app.use(express.json());
 app.use(bodyParser.json()); //application/json
 
+
 //app.set("port", 3320);
 // Settings
 app.set("port", process.env.PORT || 3320);
@@ -28,6 +33,9 @@ app.set("port", process.env.PORT || 3320);
 app.use(tasksRoutes);
 app.use(blogsRoutes);
 app.use(payment);
+app.use("/weather", weatherRoutes);
+//Authorization token
+app.use("/auth", authRoutes);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
