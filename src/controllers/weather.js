@@ -3,7 +3,7 @@ import {connect} from '../database.js';
 const fetch = require('node-fetch');
 import absoluteUrl from 'next-absolute-url';
 //import fetch from 'node-fetch';
-var variable_http_end = 'http://localhost:3320'; //'https://api.herokuapp.com';
+var variable_http_end = 'https://back-api-yk.herokuapp.com'; //'http://localhost:3320'; //'https://api.herokuapp.com';
 
 
 export const writeDateTemp = async (req, res) => {
@@ -67,7 +67,7 @@ export const writeDateTemp = async (req, res) => {
         "INSERT INTO weather (temp_day, feels_like, date_txt) VALUES (?, ?, ?)",
         [req.body.temp_day, req.body.feels_like, req.body.date_txt]
       );
-      console.log(results);
+      //console.log(results);
   
       const newBlog = {
         id: results.insertId,

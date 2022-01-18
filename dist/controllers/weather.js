@@ -27,7 +27,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var fetch = require('node-fetch');
 
 //import fetch from 'node-fetch';
-var variable_http_end = 'http://localhost:3320'; //'https://api.herokuapp.com';
+var variable_http_end = 'https://back-api-yk.herokuapp.com'; //'http://localhost:3320'; //'https://api.herokuapp.com';
 
 var writeDateTemp = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
@@ -118,25 +118,25 @@ var createWeatherItem = /*#__PURE__*/function () {
             _yield$connection$que = _context2.sent;
             _yield$connection$que2 = (0, _slicedToArray2["default"])(_yield$connection$que, 1);
             results = _yield$connection$que2[0];
-            console.log(results);
+            //console.log(results);
             newBlog = _objectSpread({
               id: results.insertId
             }, req.body);
             res.json(newBlog);
-            _context2.next = 17;
+            _context2.next = 16;
             break;
 
-          case 14:
-            _context2.prev = 14;
+          case 13:
+            _context2.prev = 13;
             _context2.t0 = _context2["catch"](0);
             console.error(_context2.t0);
 
-          case 17:
+          case 16:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 14]]);
+    }, _callee2, null, [[0, 13]]);
   }));
 
   return function createWeatherItem(_x3, _x4) {
